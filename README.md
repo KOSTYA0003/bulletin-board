@@ -129,7 +129,7 @@ Note: Ensure your .env file matches the Docker database settings: DB_HOST=board-
     docker exec -it board-app npm run build
 ```
 
-    4. Run migrations and seed the database:
+4. Run migrations and seed the database:
 
 ```bash
     docker exec -it board-app php artisan migrate:fresh --seed
