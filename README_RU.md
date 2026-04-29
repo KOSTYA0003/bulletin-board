@@ -87,7 +87,7 @@
 ## 📦 Установка и запуск (Docker)
 Это рекомендуемый способ запуска. Локальная установка PHP/MySQL не требуется.
 
-    1. Клонируйте проект и настройте окружение:
+1. Клонируйте проект и настройте окружение:
 
 ```bash
     git clone https://github.com/KOSTYA0003/bulletin-board.git
@@ -102,15 +102,15 @@
     cp .env.example .env  # Для Windows: copy .env.example .env
 ```
 
-    Убедитесь, что в .env настройки БД соответствуют Docker: DB_HOST=board-db, DB_PASSWORD=root
+Убедитесь, что в .env настройки БД соответствуют Docker: DB_HOST=board-db, DB_PASSWORD=root
 
-    2. Запустите контейнеры:
+2. Запустите контейнеры:
 
 ```bash
     docker-compose up -d --build
 ```
 
-    3. Установите зависимости и настройте приложение:
+3. Установите зависимости и настройте приложение:
 
 ```bash
     docker exec -it board-app composer installs
@@ -132,7 +132,7 @@
     docker exec -it board-app npm run build
 ```
 
-    4. Выполните миграции и наполните базу данными:
+4. Выполните миграции и наполните базу данными:
 
 ```bash
     docker exec -it board-app php artisan migrate:fresh --seed
