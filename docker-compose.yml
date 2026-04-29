@@ -1,0 +1,46 @@
+services:
+  board-app:           
+    build: .
+    container_name: board-app
+    volumes:
+      - .:/var/www
+    depends_on:
+      - board-db      
+
+  board-web:           
+    image: nginx:stable-alpine
+    container_name: board-web
+    ports:
+      - "8082:80"      
+    volumes:
+      - .:/var/www
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - board-app
+
+  board-db:            
+    image: mysql:8.0
+    container_name: board-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: bulletin_board 
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"    
+    volumes:
+      - board_db_data:/var/lib/mysql
+
+  board-phpmyadmin:    
+    image: phpmyadmin
+    container_name: board-phpmyadmin
+    ports:
+      - "8083:80"      
+    environment:
+      - PMA_HOST=board-db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    depends_on:
+      - board-db
+
+volumes:
+  board_db_data:       
