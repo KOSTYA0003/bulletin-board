@@ -85,7 +85,7 @@ Bulletin Board is a functional web platform for private classified ads. It featu
 ## 📦 Installation and Setup (Docker)
 This is the recommended way to run the project. No local PHP or MySQL installation is required.
 
-    Clone the project and configure the environment:
+Clone the project and configure the environment:
 
 ```bash
     git clone https://github.com/KOSTYA0003/bulletin-board.git
@@ -99,15 +99,15 @@ This is the recommended way to run the project. No local PHP or MySQL installati
     cp .env.example .env  # For Windows CMD use: copy .env.example .env
 ```
 
-    Note: Ensure your .env file matches the Docker database settings: DB_HOST=board-db and DB_PASSWORD=root.
+Note: Ensure your .env file matches the Docker database settings: DB_HOST=board-db and DB_PASSWORD=root.
 
-    2. Start the containers:
+2. Start the containers:
 
 ```bash
     docker-compose up -d --build
 ```
 
-    3. Install dependencies and configure the application:
+3. Install dependencies and configure the application:
 
 ```bash
     docker exec -it board-app composer installs
